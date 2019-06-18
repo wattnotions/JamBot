@@ -3,6 +3,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(millis());
+  Serial.println(millis()/1000);
+  delay(200);
 }
 
