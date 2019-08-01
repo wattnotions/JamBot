@@ -1,14 +1,7 @@
 #include <SoftwareSerial.h>
+#include <robojam.h>
 
 SoftwareSerial btSerial(A3,A2); // RX, TX
-
-#define LEFT_MOTOR_A  2
-#define LEFT_MOTOR_B  3
-#define RIGHT_MOTOR_A 4
-#define RIGHT_MOTOR_B 5
-
-
-int pwm = 10;
 
 
 
@@ -26,9 +19,9 @@ void setup() {
   Serial.begin(9600);
   btSerial.begin(9600);
 
-  //make built-in LED an output and turn it on
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH);
+  //make external LED pin an output and turn it on
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);
 
   //Stop motors from turning
   stop();
@@ -54,45 +47,4 @@ void loop() {
   
 }
 
-
-void forward(){
- 
-  digitalWrite(LEFT_MOTOR_A, HIGH); // Left motor forward
-  digitalWrite(LEFT_MOTOR_B, LOW);
-  digitalWrite(RIGHT_MOTOR_A, HIGH); // Right motor forward
-  digitalWrite(RIGHT_MOTOR_B, LOW);
-}
- 
-void turn_left(){
-  
-  digitalWrite(LEFT_MOTOR_A, LOW); // Left motor reverse
-  digitalWrite(LEFT_MOTOR_B, HIGH);
-  digitalWrite(RIGHT_MOTOR_A, HIGH);  // Right motor forward
-  digitalWrite(RIGHT_MOTOR_B, LOW);
-  
-}
- 
-void turn_right(){
-  
-  digitalWrite(LEFT_MOTOR_A, HIGH); // Left motor forward
-  digitalWrite(LEFT_MOTOR_B, LOW);
-  digitalWrite(RIGHT_MOTOR_A, LOW);  // Right motor reverse
-  digitalWrite(RIGHT_MOTOR_B, HIGH);
-  
-}
- 
-void reverse(){
-  
-  digitalWrite(LEFT_MOTOR_A, LOW); // Left motor reverse
-  digitalWrite(LEFT_MOTOR_B, HIGH);
-  digitalWrite(RIGHT_MOTOR_A, LOW);  // Right motor reverse
-  digitalWrite(RIGHT_MOTOR_B, HIGH);
-}
- 
-void stop(){
-  digitalWrite(LEFT_MOTOR_A, LOW); // Left motor stop
-  digitalWrite(LEFT_MOTOR_B, LOW);
-  digitalWrite(RIGHT_MOTOR_A, LOW);  // Right motor stop
-  digitalWrite(RIGHT_MOTOR_B, LOW);
-}
  
