@@ -3,6 +3,7 @@
 //
 
 
+#include "robojam.h"
 
 // Declare an integer variable to store the IR readings
 int ir_val;
@@ -13,12 +14,12 @@ void setup()
 {
   
   // Digital outputs for left motor
-  pinMode(2, OUTPUT);
-  pinMode(3, OUTPUT);
+  pinMode(LEFT_MOTOR_A, OUTPUT);
+  pinMode(LEFT_MOTOR_B, OUTPUT);
 
   // Digital outputs for right motor
-  pinMode(A4, OUTPUT);
-  pinMode(A5, OUTPUT);
+  pinMode(RIGHT_MOTOR_A, OUTPUT);
+  pinMode(RIGHT_MOTOR_B, OUTPUT);
   
   Serial.begin(9600);
  
@@ -29,18 +30,18 @@ void loop()
 {
   // Read the voltage on pin A0 (the IR sensor voltage)
   
-    ir_val = analogRead(A0);
-    Serial.println(colour);
+    ir_val = analogRead(IR_PIN);
+    Serial.println(ir_val);
   
   // Choose motor action based on colour reading
-  if (colour > ____)
+  if (ir_val > 100)
   {
    
     //Full steam ahead!!!
     delay(100);
     forward();
   }
-  else if (colour < ____ )
+  else if (ir_val < 100 )
   {
 
     //go backwards!!
@@ -54,43 +55,4 @@ void loop()
 }
 
 
-void forward(){
 
-  digitalWrite(2, HIGH); // Left motor forward
-  digitalWrite(3, LOW);
-  digitalWrite(A4, HIGH); // Right motor forward
-  digitalWrite(A5, LOW);
-}
-
-void turn_left(){
-  
-  digitalWrite(2, LOW); // Left motor reverse
-  digitalWrite(3, HIGH);
-  digitalWrite(A4, HIGH);  // Right motor forward
-  digitalWrite(A5, LOW);
-  
-}
-
-void turn_right(){
-  
-  digitalWrite(2, HIGH); // Left motor forward
-  digitalWrite(3, LOW);
-  digitalWrite(A4, LOW);  // Right motor reverse
-  digitalWrite(A5, HIGH);
-  
-}
-
-void reverse(){
-  
-  digitalWrite(2, LOW); // Left motor reverse
-  digitalWrite(3, HIGH);
-  digitalWrite(A4, LOW);  // Right motor reverse
-  digitalWrite(A5, HIGH);
-}
-
-void stop(){
-  digitalWrite(2, LOW); // Left motor stop
-  digitalWrite(3, LOW);
-  digitalWrite(A4, LOW);  // Right motor stop
-  digitalWrite(A5, LOW);
-}
