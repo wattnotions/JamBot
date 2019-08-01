@@ -12,6 +12,12 @@
 //Infrared Sensor Pin
 #define IR_PIN A0
 
+//PWM Pin
+#define PWM_PIN 10
+
+//LED PIN
+#define LED_PIN 11
+
 
 
 void forward(){
@@ -62,25 +68,33 @@ int get_distance()
   
   // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
   // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
-  digitalWrite(trigPin, LOW);
+  digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(5);
-  digitalWrite(trigPin, HIGH);
+  digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+  digitalWrite(TRIG_PIN, LOW);
  
   // Read the signal from the sensor: a HIGH pulse whose
   // duration is the time (in microseconds) from the sending
   // of the ping to the reception of its echo off of an object.
-  duration = pulseIn(echoPin, HIGH);
+  duration = pulseIn(ECHO_PIN, HIGH);
  
   // Convert the time into a distance
   cm = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
-  return cm ;
+  
+  if (cm < 100)
+  {
+	  return cm;
+  }
+  else
+  {
+	  return 100;
+  }
 }
 
 void set_speed(char scaled_speed)     // takes a value from 1-10 with 1 being lowest and 10 highest speed
 {
   static char speed;
   speed = 120+(scaled_speed*13);
-  analogWrite(pwm, speed);
+  analogWrite(PWM_PIN, speed);
 }
