@@ -1,5 +1,5 @@
 //
-// RoboSlam example: Colour sensor control
+// RoboSlam example: IR sensor control
 //
 
 
@@ -33,7 +33,7 @@ void loop()
     ir_val = analogRead(IR_PIN);
     Serial.println(ir_val);
   
-  // Choose motor action based on colour reading
+  // Choose motor action based on IR reading
   if (ir_val > 100)
   {
    
