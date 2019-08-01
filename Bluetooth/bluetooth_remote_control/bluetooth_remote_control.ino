@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(4,5); // RX, TX
+SoftwareSerial mySerial(A3,A2); // RX, TX
 
 void setup() {
    
@@ -11,8 +11,9 @@ void setup() {
   // Digital outputs for right motor
   pinMode(A4, OUTPUT);
   pinMode(A5, OUTPUT);
-  
-  mySerial.begin(115200);
+
+  Serial.begin(9600);
+  mySerial.begin(9600);
 
   stop();
 

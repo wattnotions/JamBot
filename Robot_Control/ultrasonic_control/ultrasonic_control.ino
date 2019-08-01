@@ -28,19 +28,22 @@ void setup() {
 void loop() {
   
   
-  if (get_distance() > 20){
+  if (get_distance() > 20)
+  {
     set_speed(140);
     forward();
   }
-  else {
+  
+  else
+  {
     set_speed(140);
-    while (get_distance() < 20) {
-      reverse();
-      delay(2000);
+    while (get_distance() < 20) 
+    {
       turn_right();
-      delay(150);
     }
   }
+  
+  
 }
 
 

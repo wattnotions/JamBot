@@ -6,7 +6,7 @@
  
 int trigPin = 6;    // Trigger
 int echoPin = 7;    // Echo
-long duration, cm, ;
+long duration, cm ;
  
 void setup() {
   //Serial Port begin
@@ -33,10 +33,14 @@ void loop() {
  
   // Convert the time into a distance
   cm = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+
+
+  if(cm<100){
+    Serial.print(cm);
+    Serial.println();
+  }
   
-  Serial.print(cm);
-  Serial.println();
   
-  delay(50);
+  delay(20);
 }
 

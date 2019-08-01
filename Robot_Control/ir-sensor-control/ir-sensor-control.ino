@@ -1,17 +1,16 @@
-/*
- * RoboJAM! Motor Control Functions
- * 
- * The various combinations of pin states have been put into handy
- * functions for you to use in your programs
- */
+//
+// RoboSlam example: Colour sensor control
+//
 
 
-int pwm;
 
-void setup() {
-  // Digital output for PWM
-  pinMode(pwm, OUTPUT);
-  analogWrite(pwm, 140);
+// Declare an integer variable to store the IR readings
+int ir_val;
+
+
+// The setup routine runs once when the power is switched on.
+void setup()
+{
   
   // Digital outputs for left motor
   pinMode(2, OUTPUT);
@@ -20,22 +19,40 @@ void setup() {
   // Digital outputs for right motor
   pinMode(A4, OUTPUT);
   pinMode(A5, OUTPUT);
-
+  
+  Serial.begin(9600);
+ 
 }
 
-void loop() {
+// The loop routine runs over and over until the power is switched off.
+void loop()
+{
+  // Read the voltage on pin A0 (the IR sensor voltage)
   
-  forward();
-  delay(1000);
-  reverse();
-  delay(1000);
-  turn_left();
-  delay(1000);
-  turn_right();
-  delay(1000);
+    ir_val = analogRead(A0);
+    Serial.println(colour);
   
+  // Choose motor action based on colour reading
+  if (colour > ____)
+  {
+   
+    //Full steam ahead!!!
+    delay(100);
+    forward();
+  }
+  else if (colour < ____ )
+  {
 
+    //go backwards!!
+    reverse();
+    delay(500);
+
+    //do a turn!!
+    turn_right();
+    delay(150);
+  }
 }
+
 
 void forward(){
 
@@ -47,10 +64,10 @@ void forward(){
 
 void turn_left(){
   
-  digitalWrite(2, HIGH); // Left motor forward
-  digitalWrite(3, LOW);
-  digitalWrite(A4, LOW);  // Right motor reverse
-  digitalWrite(A5, HIGH);
+  digitalWrite(2, LOW); // Left motor reverse
+  digitalWrite(3, HIGH);
+  digitalWrite(A4, HIGH);  // Right motor forward
+  digitalWrite(A5, LOW);
   
 }
 
@@ -77,4 +94,3 @@ void stop(){
   digitalWrite(A4, LOW);  // Right motor stop
   digitalWrite(A5, LOW);
 }
-
