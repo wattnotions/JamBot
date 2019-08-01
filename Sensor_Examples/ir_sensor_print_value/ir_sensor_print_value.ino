@@ -2,20 +2,21 @@
 // RoboSlam example: Print IR sensor analog value
 //
 
-int colour;
+#include <robojam.h>
+
+int ir_val;
 
 void setup()
 { 
   Serial.begin(9600);
- 
 }
 
 void loop()
 {
-  // Read the voltage on pin A0 (the colour sensor voltage)
+  // Read the voltage coming from the IR Sensor
   
-    colour = analogRead(A0);
-    Serial.println(colour);
+    ir_val = analogRead(IR_PIN);
+    Serial.println(ir_val);
     delay(10);
   
 }
