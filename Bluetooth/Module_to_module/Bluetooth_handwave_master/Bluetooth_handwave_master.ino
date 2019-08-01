@@ -33,7 +33,7 @@ void loop() {
 
   distance = get_distance() ;
   
-  if (distance < 30 && distance != 100)         //hand detected
+  if (distance < 30)         //hand detected
   {
     digitalWrite(ledPin, HIGH);
     btSerial.print("a");
