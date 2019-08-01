@@ -18,6 +18,10 @@
 //LED PIN
 #define LED_PIN 11
 
+//Bluetooth Serial Pins
+#define BLUETOOTH_RX A3
+#define BLUETOOTH_TX A2
+
 
 
 void forward(){
@@ -43,6 +47,24 @@ void turn_right(){
   digitalWrite(LEFT_MOTOR_B, LOW);
   digitalWrite(RIGHT_MOTOR_A, LOW);  // Right motor reverse
   digitalWrite(RIGHT_MOTOR_B, HIGH);
+  
+}
+
+void shuffle_left(){
+  
+  digitalWrite(LEFT_MOTOR_A, LOW); // Left motor reverse
+  digitalWrite(LEFT_MOTOR_B, LOW);
+  digitalWrite(RIGHT_MOTOR_A, HIGH);  // Right motor forward
+  digitalWrite(RIGHT_MOTOR_B, LOW);
+  
+}
+ 
+void shuffle_right(){
+  
+  digitalWrite(LEFT_MOTOR_A, HIGH); // Left motor forward
+  digitalWrite(LEFT_MOTOR_B, LOW);
+  digitalWrite(RIGHT_MOTOR_A, LOW);  // Right motor reverse
+  digitalWrite(RIGHT_MOTOR_B, LOW);
   
 }
  
@@ -95,6 +117,6 @@ int get_distance()
 void set_speed(char scaled_speed)     // takes a value from 1-10 with 1 being lowest and 10 highest speed
 {
   static char speed;
-  speed = 120+(scaled_speed*13);
+  speed = 100+(scaled_speed*15);
   analogWrite(PWM_PIN, speed);
 }
