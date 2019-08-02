@@ -1,4 +1,5 @@
 #include <SoftwareSerial.h>
+#include <robojam.h>
 
 SoftwareSerial btSerial(BLUETOOTH_RX , BLUETOOTH_TX); // RX, TX
 
@@ -15,10 +16,10 @@ char msg;
 
 void loop() {
   
-  if (mySerial.available())      //if serial data has been received
+  if (btSerial.available())      //if serial data has been received
   {
-      msg =  mySerial.read();    //read the character into the msg variable
-      mySerial.println("Received Character!"); //send received notification back to phone via HC-06
+      msg =  btSerial.read();    //read the character into the msg variable
+      btSerial.println("Received Character!"); //send received notification back to phone via HC-06
       
       Serial.println(msg);       //print the received character to the serial monitor
   }
