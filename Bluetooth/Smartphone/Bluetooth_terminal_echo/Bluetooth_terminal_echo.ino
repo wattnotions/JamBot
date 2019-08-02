@@ -1,11 +1,11 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(A3,A2); // RX, TX
+SoftwareSerial btSerial(BLUETOOTH_RX , BLUETOOTH_TX); // RX, TX
 
 void setup() {
 
   Serial.begin(9600);
-  mySerial.begin(9600);
+  btSerial.begin(9600);
 
 }
 
