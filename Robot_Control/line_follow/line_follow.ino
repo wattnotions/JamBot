@@ -11,7 +11,7 @@ int ir_val;
 void setup()
 {
   // Digital output for LED
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
 
   // Digital outputs for left motor
   pinMode(LEFT_MOTOR_A, OUTPUT);

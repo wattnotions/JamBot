@@ -20,8 +20,8 @@ void setup() {
   btSerial.begin(9600);
 
   //make external LED pin an output and turn it on
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, HIGH);
+  pinMode(GREEN_LED, OUTPUT);
+  digitalWrite(GREEN_LED, HIGH);
 
   //Stop motors from turning
   stop();

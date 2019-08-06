@@ -21,7 +21,7 @@ void setup() {
   //Define inputs and outputs
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
 
 }
  
@@ -31,7 +31,7 @@ void loop() {
   
   if (distance < 30)         //hand detected
   {
-    digitalWrite(LED_PIN, HIGH);
+    digitalWrite(GREEN_LED, HIGH);
     btSerial.print("a");
     while (get_distance() < 30) {}  //wait until hand is removed
     btSerial.print("d");
@@ -39,7 +39,7 @@ void loop() {
   }
   else
   {
-    digitalWrite(LED_PIN, LOW);
+    digitalWrite(GREEN_LED, LOW);
   }
 
   

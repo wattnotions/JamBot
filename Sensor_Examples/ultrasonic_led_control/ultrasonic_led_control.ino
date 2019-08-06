@@ -16,7 +16,7 @@ void setup() {
   //Define inputs and outputs
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
   
 }
 
@@ -27,7 +27,7 @@ void loop() {
   
 	if (distance != 100)
   {
-	  analogWrite(LED_PIN, distance*2.5);
+	  analogWrite(GREEN_LED, distance*2.5);
   }
 
   Serial.println(distance);

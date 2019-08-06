@@ -12,7 +12,7 @@ void setup() {
   Serial.begin(9600);     //enable Arduino serial link to computer
   btSerial.begin(9600);   //enable software serial connected to hc-06
   
-  pinMode(LED_PIN, OUTPUT);    //set LED pin as output
+  pinMode(GREEN_LED, OUTPUT);    //set LED pin as output
 
 }
 
@@ -29,12 +29,12 @@ void loop()
 		
 		if (msg == 'a') 
 		{  
-			digitalWrite(LED_PIN, HIGH);
+			digitalWrite(GREEN_LED, HIGH);
 			btSerial.println("LED ON!"); //send message back to phone via hc-06
 		}
 		else if (msg == 'd')
 		{
-			digitalWrite(LED_PIN, LOW);
+			digitalWrite(GREEN_LED, LOW);
 			btSerial.println("LED OFF!"); //send message back to phone via hc-06
 		}
       

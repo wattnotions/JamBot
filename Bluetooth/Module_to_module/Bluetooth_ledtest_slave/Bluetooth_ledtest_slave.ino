@@ -1,13 +1,14 @@
 #include <SoftwareSerial.h>
+#include <robojam.h>
 
-SoftwareSerial btSerial(A3,A2); // RX, TX
+SoftwareSerial btSerial(BLUETOOTH_RX, BLUETOOTH_TX); // RX, TX
 
-int pwm;
+
 
 void setup() {
    
   // Digital outputs for built-in LED
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
 
   Serial.begin(9600);
   btSerial.begin(9600);
@@ -20,8 +21,8 @@ void loop() {
   
   if (btSerial.available()) {
       cmd =  btSerial.read();
-      if (cmd == 'a') { digitalWrite(LED_BUILTIN, HIGH); }
-      if (cmd == 'd') { digitalWrite(LED_BUILTIN, LOW ); }
+      if (cmd == 'a') { digitalWrite(GREEN_LED, HIGH); }
+      if (cmd == 'd') { digitalWrite(GREEN_LED, LOW ); }
      
       Serial.println(cmd);
     }
