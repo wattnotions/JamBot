@@ -15,8 +15,9 @@
 //PWM Pin
 #define PWM_PIN 10
 
-//LED PIN
+//LED PINs
 #define GREEN_LED 11
+#define RED_LED   12
 
 //Bluetooth Serial Pins
 #define BLUETOOTH_RX A3
