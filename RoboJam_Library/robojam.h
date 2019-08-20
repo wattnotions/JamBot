@@ -23,9 +23,9 @@
 #define BLUETOOTH_TX A2
 
 //Bluetooth Remote Control Button Pins
-FORWARD_BUTTON A1
-LEFT_BUTTON    A2
-RIGHT_BUTTON   A3
+#define FORWARD_BUTTON A1
+#define LEFT_BUTTON    A2
+#define RIGHT_BUTTON   A3
 
 
 

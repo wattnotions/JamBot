@@ -8,22 +8,22 @@ void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
   // make the pushbutton's pin an input:
-  pinMode(A1, INPUT_PULLUP);
-  pinMode(A2, INPUT_PULLUP);
-  pinMode(A3, INPUT_PULLUP);
+  pinMode(FORWARD_BUTTON, INPUT_PULLUP);
+  pinMode(LEFT_BUTTON   , INPUT_PULLUP);
+  pinMode(RIGHT_BUTTON  , INPUT_PULLUP);
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
   // print out the state of the buttons:
   
-  Serial.print(digitalRead(A1));
+  Serial.print(digitalRead(FORWARD_BUTTON));
   Serial.print("   ");
 
-  Serial.print(digitalRead(A2));
+  Serial.print(digitalRead(LEFT_BUTTON));
   Serial.print("   ");
 
-  Serial.println(digitalRead(A3));
+  Serial.println(digitalRead(RIGHT_BUTTON));
 
   
   delay(100);        // delay in between reads for stability
