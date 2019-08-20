@@ -15,13 +15,17 @@
 //PWM Pin
 #define PWM_PIN 10
 
-//LED PINs
-#define GREEN_LED 11
-#define RED_LED   12
+//LED PIN
+#define LED_PIN 11
 
 //Bluetooth Serial Pins
 #define BLUETOOTH_RX A3
 #define BLUETOOTH_TX A2
+
+//Bluetooth Remote Control Button Pins
+FORWARD_BUTTON A1
+LEFT_BUTTON    A2
+RIGHT_BUTTON   A3
 
 
 
