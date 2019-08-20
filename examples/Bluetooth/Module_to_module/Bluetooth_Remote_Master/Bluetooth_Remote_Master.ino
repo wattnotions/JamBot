@@ -21,26 +21,29 @@ void setup() {
   pinMode(LEFT_BUTTON   , INPUT_PULLUP);
   pinMode(RIGHT_BUTTON  , INPUT_PULLUP);
 
+  pinMode(GREEN_LED,      OUTPUT);
+  pinMode(RED_LED,        OUTPUT);
+
 }
  
 void loop() {
 
 
-  if (digitalRead(FORWARD_BUTTON) == 1) 
+  if (digitalRead(FORWARD_BUTTON) == 0) 
   {
     btSerial.print("f");
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(RED_LED  , HIGH);
   }
   
-  else if (digitalRead(RIGHT_BUTTON) == 1) 
+  else if (digitalRead(RIGHT_BUTTON) == 0) 
   {
     btSerial.print("r");
     digitalWrite(GREEN_LED, HIGH);
     digitalWrite(RED_LED  , LOW);
   }
   
-  else if(digitalRead(LEFT_BUTTON) == 1) 
+  else if(digitalRead(LEFT_BUTTON) == 0) 
   {
     btSerial.print("l");
     digitalWrite(GREEN_LED, LOW);

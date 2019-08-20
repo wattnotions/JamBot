@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 #include <robojam.h>
 
-SoftwareSerial btSerial(A3,A2); // RX, TX
+SoftwareSerial btSerial(BLUETOOTH_RX, BLUETOOTH_TX); // RX, TX
 
 
 
@@ -40,8 +40,7 @@ void loop() {
       cmd =  btSerial.read();
       if (cmd == 'f') 
       { 
-        stop();
-        delay(50);
+      
         forward(); 
 
         digitalWrite(GREEN_LED, HIGH);
@@ -50,8 +49,7 @@ void loop() {
       
       else if (cmd == 'r') 
       { 
-        stop();
-        delay(50);
+        
         turn_right(); 
 
         digitalWrite(GREEN_LED, HIGH);
@@ -60,8 +58,7 @@ void loop() {
 
       else if (cmd == 'l') 
       { 
-        stop();
-        delay(50);
+        
         turn_left(); 
 
         digitalWrite(GREEN_LED, LOW);
