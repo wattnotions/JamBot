@@ -15,12 +15,13 @@
 //PWM Pin
 #define PWM_PIN 10
 
-//LED PIN
-#define LED_PIN 11
+//LED PINs
+#define GREEN_LED 11
+#define RED_LED   12
 
 //Bluetooth Serial Pins
-#define BLUETOOTH_RX A3
-#define BLUETOOTH_TX A2
+#define BLUETOOTH_RX A4
+#define BLUETOOTH_TX A5
 
 //Bluetooth Remote Control Button Pins
 #define FORWARD_BUTTON A1
@@ -122,6 +123,6 @@ int get_distance()
 void set_speed(char scaled_speed)     // takes a value from 1-10 with 1 being lowest and 10 highest speed
 {
   static char speed;
-  speed = 100+(scaled_speed*15);
+  speed = 70+(scaled_speed*15);
   analogWrite(PWM_PIN, speed);
 }
